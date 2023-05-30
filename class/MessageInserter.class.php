@@ -2,7 +2,7 @@
 /**
  * Class MessageInserter, insert system and user messages into DB and transform it if needed
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -41,7 +41,7 @@ class MessageInserter extends EtChatConfig
 		$this->dbObj=$dbObj;
 		
 		// message after room entrance
-		if ($_POST['roomchange']=="true" && !empty($raum_array[0][3])){		
+		if (isset($_POST['roomchange']) && $_POST['roomchange']=="true" && !empty($raum_array[0][3])){
 			// line break WIN
 			$room_message_insert = str_replace("\r\n","<br />",$raum_array[0][3]);
 			// line break LIN, Uniux, MacOS
@@ -109,16 +109,16 @@ class MessageInserter extends EtChatConfig
 			// BOT -------------------------------------------
 			/*
 			if (substr($_POST['message'], 0, 5)==".time"){
-				$db->sql("INSERT INTO {$this->_prefix}etchat_messages ( etchat_user_fid , etchat_text, etchat_text_css, etchat_timestamp, etchat_fid_room, etchat_privat)
+				$this->dbObj->sqlSet("INSERT INTO {$this->_prefix}etchat_messages ( etchat_user_fid , etchat_text, etchat_text_css, etchat_timestamp, etchat_fid_room, etchat_privat)
 					VALUES ( 1, '".date('d.m.Y - H:i')."', 'color:#".$_SESSION['etchat_'.$this->_prefix.'syscolor'].";font-weight:normal;font-style:normal;', ".date('U').", ".(int)$_POST['room'].", 0)", false);
 			}
 			if (substr($_POST['message'], 0, 8)==".version"){
-				$db->sql("INSERT INTO {$this->_prefix}etchat_messages ( etchat_user_fid , etchat_text, etchat_text_css, etchat_timestamp, etchat_fid_room, etchat_privat)
-					VALUES ( 1, 'ET-Chat v3.0.5', 'color:#".$_SESSION['etchat_'.$this->_prefix.'syscolor'].";font-weight:normal;font-style:normal;', ".date('U').", ".(int)$_POST['room'].", 0)", false);
+				$this->dbObj->sqlSet("INSERT INTO {$this->_prefix}etchat_messages ( etchat_user_fid , etchat_text, etchat_text_css, etchat_timestamp, etchat_fid_room, etchat_privat)
+					VALUES ( 1, 'ET-Chat v3.0.7 r3', 'color:#".$_SESSION['etchat_'.$this->_prefix.'syscolor'].";font-weight:normal;font-style:normal;', ".date('U').", ".(int)$_POST['room'].", 0)", false);
 			}
 			if (substr($_POST['message'], 0, 1)=="/"){
-				$db->sql("INSERT INTO {$this->_prefix}etchat_messages ( etchat_user_fid , etchat_text, etchat_text_css, etchat_timestamp, etchat_fid_room, etchat_privat)
-					VALUES ( 1, 'IRC Befehle werden hier nicht unterstützt. Alle Einstellungen können stattdessen in Menues bequemm eingestellt werden.', 'color:#".$_SESSION['etchat_'.$this->_prefix.'syscolor'].";font-weight:normal;font-style:normal;', ".date('U').", ".(int)$_POST['room'].", 0)", false);
+				$this->dbObj->sqlSet("INSERT INTO {$this->_prefix}etchat_messages ( etchat_user_fid , etchat_text, etchat_text_css, etchat_timestamp, etchat_fid_room, etchat_privat)
+					VALUES ( 1, 'IRC Befehle werden hier nicht unterstÃ¼tzt. Alle Einstellungen kÃ¶nnen stattdessen in Menues bequemm eingestellt werden.', 'color:#".$_SESSION['etchat_'.$this->_prefix.'syscolor'].";font-weight:normal;font-style:normal;', ".date('U').", ".(int)$_POST['room'].", 0)", false);
 			}
 			*/
 			//--------------------------------

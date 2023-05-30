@@ -2,7 +2,7 @@
 /**
  * Class AfterKicklistInsertion, shows the page after the user was kicked
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/

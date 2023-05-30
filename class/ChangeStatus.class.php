@@ -2,7 +2,7 @@
 /**
  * ChangeStatus for user blocking in the session
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -85,6 +85,7 @@ class ChangeStatus extends DbConectionMaker
 			if ($status_value->tagAttrs['imagename']==$statusImagename && $status_value->tagAttrs['rights']!='all')	
 				$thisStatusImagenameRights[]=$status_value->tagAttrs['rights'];
 		
+		$thisStatusImagenameRights = '';
 		if (!is_array($thisStatusImagenameRights)) return true;
 		else{
 			if (in_array($_SESSION['etchat_'.$this->_prefix.'user_priv'], $thisStatusImagenameRights)) return true;

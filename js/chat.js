@@ -18,7 +18,7 @@ this.active_get_message_req=false;			//(privat) TRUE wenn gerade eine ReloaderMe
 this.interval_for_inactivity=1800000;		//(public) Wie lange darf der User nichts schreiben bis er aus dem Chat rausfliegt
 this.allowed_privates_in_separate_win = true;
 this.allowed_privates_in_chat_win = true;
-this.anbindung_an_userverwaltung;			//(privat) Wenn die Userverwaltung benutzt wird, soll der Mon kein PW ändern
+this.anbindung_an_userverwaltung;			//(privat) Wenn die Userverwaltung benutzt wird, soll der Mon kein PW Ã¤ndern
 this.reload_interval;						//(public) Reloadzeit
 this.show_history_all_user;					//(public) [bool] Soll die History fuer alle Gezeigt wrden oder nur Admin/Mod-Team
 this.allow_nick_registration;				//(public) [bool] Registrierung der Namen erlauben
@@ -279,7 +279,7 @@ this.start = function(){
 			}
 
 
-			//Verändert Userstatus
+			//VerÃ¤ndert Userstatus
 			var submit_status = function(img, text){
 
 				new Ajax.Request(
@@ -912,7 +912,7 @@ this.send = function()
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// (Start) Anfrage an den Reloader mit Datenuebergabe vom User, nur für PrivatWin -------
+// (Start) Anfrage an den Reloader mit Datenuebergabe vom User, nur fÃ¼r PrivatWin -------
 this.send2privatwin = function(message_input_field, privat)
 {
 	
@@ -959,7 +959,7 @@ this.send2privatwin = function(message_input_field, privat)
 		 
 	return false;
 };
-// (Stop) Anfrage an den Reloader mit Datenuebergabe vom User, nur für PrivatWin -------
+// (Stop) Anfrage an den Reloader mit Datenuebergabe vom User, nur fÃ¼r PrivatWin -------
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 

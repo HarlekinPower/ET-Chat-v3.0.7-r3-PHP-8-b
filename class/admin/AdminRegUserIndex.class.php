@@ -2,7 +2,7 @@
 /**
  * Class AdminRegUserIndex - Admin area
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -48,12 +48,12 @@ class AdminRegUserIndex extends DbConectionMaker
 			if (empty($_GET['order']) && empty($_SESSION['etchat_'.$this->_prefix.'order_reg_user'])) 
 				$_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_username";
 			
-			if ($_GET['order'] == 1) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_username";
-			if ($_GET['order'] == 2) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_username DESC";
-			if ($_GET['order'] == 3) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_reg_timestamp";
-			if ($_GET['order'] == 4) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_reg_timestamp DESC";
-			if ($_GET['order'] == 5) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_reg_ip";
-			if ($_GET['order'] == 6) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_reg_ip DESC";
+			if (isset($_GET['order']) && $_GET['order'] == 1) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_username";
+			if (isset($_GET['order']) && $_GET['order'] == 2) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_username DESC";
+			if (isset($_GET['order']) && $_GET['order'] == 3) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_reg_timestamp";
+			if (isset($_GET['order']) && $_GET['order'] == 4) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_reg_timestamp DESC";
+			if (isset($_GET['order']) && $_GET['order'] == 5) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_reg_ip";
+			if (isset($_GET['order']) && $_GET['order'] == 6) $_SESSION['etchat_'.$this->_prefix.'order_reg_user']="etchat_reg_ip DESC";
 			
 			$print_order_by = ($_SESSION['etchat_'.$this->_prefix.'order_reg_user']=="etchat_username") ? "<option value=\"1\" selected>".$lang->name[0]->tagData." ".$lang->asc[0]->tagData."</value>" : "<option value=\"1\">".$lang->name[0]->tagData." ".$lang->asc[0]->tagData."</value>";
 			$print_order_by.= ($_SESSION['etchat_'.$this->_prefix.'order_reg_user']=="etchat_username DESC") ? "<option value=\"2\" selected>".$lang->name[0]->tagData." ".$lang->desc[0]->tagData."</value>" : "<option value=\"2\">".$lang->name[0]->tagData." ".$lang->desc[0]->tagData."</value>";
@@ -111,7 +111,7 @@ class AdminRegUserIndex extends DbConectionMaker
 	*
 	* @param  String $print_user_list
 	* @param  String $print_sitemaker
-	* @param  XMLParser $lang, Obj with the needed lang tag from XML lang-file
+	* @param  AAFParser $lang, Obj with the needed lang tag from XML lang-file
 	* @return void
 	*/
 	private function initTemplate($lang, $print_user_list){

@@ -2,7 +2,7 @@
 /**
  * Class PropertyIndex
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -46,6 +46,7 @@ class AdminPropertyIndex extends DbConectionMaker
 		if ($_SESSION['etchat_'.$this->_prefix.'user_priv']=="admin"){
 			
 			$handle = opendir("styles/");
+			$print_styles = '';
 			while($files = readdir($handle))
 			{
 				if($files != "." && $files != "..")
@@ -58,12 +59,13 @@ class AdminPropertyIndex extends DbConectionMaker
 			}				
 			
 			$handle = opendir("lang/");
+			$print_lang_files = '';
 			while($files = readdir($handle))
 			{
 				if (!is_dir("lang/".$files) && stripos($files, '.xml')!==false && substr($files,0,5)=='lang_') {
 
 					$xml_file = file_get_contents('lang/'.$files);
-					$p = new XMLParser($xml_file);
+					$p = new AAFParser($xml_file);
 					$p->Parse();
 					if ($files == $_SESSION['etchat_'.$this->_prefix.'lang_xml_file']) $print_lang_files.= "<option value=\"".$files."\" selected>".$p->document->tagAttrs['lang']."</option>";
 					else $print_lang_files.=  "<option value=\"".$files."\">".$p->document->tagAttrs['lang']."</option>";

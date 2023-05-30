@@ -2,7 +2,7 @@
 /**
  * Class CheckUserName, chat login class
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -108,7 +108,7 @@ class CheckUserName extends DbConectionMaker
 		
 		// Is the curent user IP in zhe Blacklist or has the user browser an actual "black cookie"?
 		if ($blackListObj->userInBlacklist()){
-			setcookie("cookie_anzahl_logins_in_XX_sek",1);
+			setcookie("cookie_anzahl_logins_in_XX_sek",1,["samesite" => "lax"]);
 			if (!$this->user_application) $this->errorMessage("blacklist"); 
 			$blackListObj->killUserSession();
 			if ($this->user_application) header('Location: ./?AfterBlacklistInsertion');
@@ -149,25 +149,25 @@ class CheckUserName extends DbConectionMaker
 	*/
 	private function loginCounter (){
 		if(!isset($_COOKIE['cookie_last_login'])) {
-			setcookie("cookie_last_login", date('U'));
-			setcookie("cookie_anzahl_logins_in_XX_sek",1);
+			setcookie("cookie_last_login", date('U'), ["samesite" => "lax"]);
+			setcookie("cookie_anzahl_logins_in_XX_sek",1,["samesite" => "lax"]);
 			return true;
 		}
 		else{
 			if (date('U')-$_COOKIE['cookie_last_login'] < 180) {
 				$c_anzahl_logins=$_COOKIE['cookie_anzahl_logins_in_XX_sek']+1;
-				setcookie("cookie_anzahl_logins_in_XX_sek", $c_anzahl_logins);
+				setcookie("cookie_anzahl_logins_in_XX_sek", $c_anzahl_logins, ["samesite" => "lax"]);
 				
 				if ($_COOKIE['cookie_anzahl_logins_in_XX_sek']>($this->_limit_logins_in_three_minutes-1)) {
-				setcookie("cookie_last_login", date('U'));
+				setcookie("cookie_last_login", date('U'), ["samesite" => "lax"]);
 				$this->errorMessage($this->lang->many_logins[0]->tagData);
 				return false;
 				}
 			else return true;
 			}
 			else {
-				setcookie("cookie_last_login", date('U'));
-				setcookie("cookie_anzahl_logins_in_XX_sek", 1);
+				setcookie("cookie_last_login", date('U'), ["samesite" => "lax"]);
+				setcookie("cookie_anzahl_logins_in_XX_sek", 1, ["samesite" => "lax"]);
 				return true;
 			}
 		}
@@ -183,7 +183,7 @@ class CheckUserName extends DbConectionMaker
 	private function userInChatNow($user){
 		// if a returned dataset is an array, then the Username is now in etchat_useronline tab, so in the chat session
 		if(is_array($this->dbObj->sqlGet("SELECT etchat_username FROM {$this->_prefix}etchat_useronline, {$this->_prefix}etchat_user WHERE etchat_username = '".$user."' AND etchat_user_id = etchat_onlineuser_fid LIMIT 1"))){
-			setcookie("cookie_anzahl_logins_in_XX_sek",1);
+			setcookie("cookie_anzahl_logins_in_XX_sek",1,["samesite" => "lax"]);
 			return true;
 		}
 		else return false;

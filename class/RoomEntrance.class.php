@@ -2,7 +2,7 @@
 /**
  * Class RoomEntrance, makes all needed things, like messages on user entrance
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -20,8 +20,8 @@ class RoomEntrance extends EtChatConfig
 	private $dbObj;
 
 	/**
-	* XMLParser Obj with the needed lang tag from XML lang-file
-	* @var XMLParser
+	* AAFParser Obj with the needed lang tag from XML lang-file
+	* @var AAFParser
 	*/
 	private $_lang;
 	
@@ -29,7 +29,7 @@ class RoomEntrance extends EtChatConfig
 	* Constructor
 	*
 	* @param  ConnectDB $dbObj, Obj with the db connection handler
-	* @param  XMLParser $lang, Obj with the needed lang tag from XML lang-file
+	* @param  AAFParser $lang, Obj with the needed lang tag from XML lang-file
 	* @uses ConnectDB::sqlGet()
 	* @return void
 	*/

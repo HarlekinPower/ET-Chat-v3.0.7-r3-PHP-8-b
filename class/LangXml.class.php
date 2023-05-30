@@ -2,7 +2,7 @@
 /**
  * Class LangXml, lang file controller
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -14,8 +14,8 @@
 class LangXml extends EtChatConfig
 {
 	/**
-	* XMLParser Obj
-	* @var XMLParser
+	* AAFParser Obj
+	* @var AAFParser
 	*/
 	public $langXmlDoc;
 	
@@ -24,9 +24,9 @@ class LangXml extends EtChatConfig
 	*
 	* @param  string $path relative path to language files
 	* @param  string $xmlfile 
-	* @uses XMLParser object creation
-	* @uses XMLParser::Parse() parse the lang file
-	* @uses XMLParser::$document root-tag as DOM Obj
+	* @uses AAFParser object creation
+	* @uses AAFParser::Parse() parse the lang file
+	* @uses AAFParser::$document root-tag as DOM Obj
 	* @return void
 	*/
 	public function __construct ($path="./lang/", $xmlfile=""){	
@@ -43,8 +43,8 @@ class LangXml extends EtChatConfig
 		// read the whole XML-Lang file
 		$xml = @file_get_contents($path.$xmlfile);
 		
-		// create a XMLParser obj
-		$parser = new XMLParser($xml);
+		// create a AAFParser obj
+		$parser = new AAFParser($xml);
 		$parser->Parse();
 		$this->langXmlDoc = $parser->document;
 	}
@@ -52,7 +52,7 @@ class LangXml extends EtChatConfig
 	/**
 	* Get language datasets for curent class
 	*
-	* @return XMLParser
+	* @return AAFParser
 	*/
 	public function getLang(){	
 		return $this->langXmlDoc;

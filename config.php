@@ -2,7 +2,7 @@
 /**
  * Config DB and Chat parameters
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2017 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -19,26 +19,26 @@ $sqlpass = "";    			//Datenbank Passwort
 	
 $prefix = "db1_";			//Prefix bei den Tabellennamen und allen Sessionvariablen
 	
-// Parameter wird IMMER benötigt um die richtige SQL-Syntaxis zu erzeugen und auch bei der Anbindung über PDO umd die richtige DB auszuwählen
+// Parameter wird IMMER benÃ¶tigt um die richtige SQL-Syntaxis zu erzeugen und auch bei der Anbindung Ã¼ber PDO umd die richtige DB auszuwÃ¤hlen
 $usedDatabaseType = "mysql";	// "mysql" oder "pgsql"
 
 // ############################################################################
 /*
  Welche Datenbankanbindung soll benutzt werden?
- Wenn Sie sich mit der Serverkonfiguration nicht besonders gut auskennen, sollen Sie diese Einstellungen nicht verändern!
+ Wenn Sie sich mit der Serverkonfiguration nicht besonders gut auskennen, sollen Sie diese Einstellungen nicht verÃ¤ndern!
 */
 
-// PDO ist die einheitliche Datenbankanbindungskomponennte in PHP5 für alle Datenbanken, also MySQL und PostgreSQL 
+// PDO ist die einheitliche Datenbankanbindungskomponennte in PHP5 fÃ¼r alle Datenbanken, also MySQL und PostgreSQL 
 
 $usedDatabaseExtension = "pdo";
 
-// Nach Wunsch oder wenn die PDO nicht verfügbar ist, kann die MySQLi für die Anbindung an MySQL benutzt werden. 
+// Nach Wunsch oder wenn die PDO nicht verfÃ¼gbar ist, kann die MySQLi fÃ¼r die Anbindung an MySQL benutzt werden. 
 // Es soll angeblich auch etwas performanter sein.
 
 //$usedDatabaseExtension = "mysqli";
 
 // ############################################################################
-// Chatparameter optional zu verändern
+// Chatparameter optional zu verÃ¤ndern
 
 // Wieviele alte Messages sieht der User, wenn er den Chat erstmalig betritt.
 $messages_shown_on_entrance = 1;
@@ -52,7 +52,7 @@ $allowed_privates_in_chat_win = true;
 // Separate Privatchatfenster erlauben.
 $allowed_privates_in_separate_win = true;
 
-// Bei False wird die History / Chatverlauf nur für Admin und Mod sichtbar
+// Bei False wird die History / Chatverlauf nur fÃ¼r Admin und Mod sichtbar
 $show_history_all_user = true;
 
 // Wie lange darf der User nichts schreiben bis er aus dem Chat rausfliegt 
@@ -61,8 +61,8 @@ $interval_for_inactivity=1800000;
 
 // Starteinstellung beim Messages-Sound [ none | privat | all ]
 // none: keine Sounds
-// privat: Sounds nur für eingehende private Nachrichten
-// all: Sounds für alle Nachrichten im Chat
+// privat: Sounds nur fÃ¼r eingehende private Nachrichten
+// all: Sounds fÃ¼r alle Nachrichten im Chat
 $messages_sound = "all";
 
 
@@ -72,8 +72,10 @@ $show_sys_messages = true;
 
 // Niknameregistrierung erlauben
 $allow_nick_registration = true;
-// WICHTIG!!! Wenn die Anbindung des Chats an eine Fremduserverwaltung über die Zusatztool_Anbindung_an_Fremduserverwaltung.php
-// umgesetzt wird, darf kein Chatbenutzer ein eigenes Passwort festlegen können. Deshalb sollte bei der Verwendung von 
+// WICHTIG!!! Wenn die Anbindung des Chats an eine Fremduserverwaltung Ã¼ber die Zusatztool_Anbindung_an_Fremduserverwaltung.php
+// umgesetzt wird, darf kein Chatbenutzer ein eigenes Passwort festlegen kÃ¶nnen. Deshalb sollte bei der Verwendung von 
 // Zusatztool_Anbindung_an_Fremduserverwaltung.php die $allow_nick_registration = false; geschaltet sein!
 
+//Bei falscher Zeitanzeige im Chat die folgende Zeile auskommentieren
+//date_default_timezone_set('Europe/Berlin');
 // ############################################################################

@@ -2,7 +2,7 @@
 /**
  * ChangePw, sets new Pw
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -50,7 +50,7 @@ class ChangePw extends DbConectionMaker
 				echo $lang->warning[0]->tagData;
 			}
 			else{	
-				setcookie("cookie_etchat_nik_registered", "1", time()+(24*3600), "/");
+				setcookie("cookie_etchat_nik_registered", "1", ["expires"  => time()+(24*3600), "path" => "/", "samesite" => "lax"]);
 				//setcookie("cookie_etchat_nik_registered", "1");
 				$this->dbObj->sqlSet("UPDATE {$this->_prefix}etchat_user SET etchat_userpw = '".md5($_POST['user_pw'])."', etchat_userprivilegien='user', etchat_reg_timestamp=now(), etchat_reg_ip='".$_SERVER['REMOTE_ADDR']."' WHERE etchat_user_id = ".(int)$_SESSION['etchat_'.$this->_prefix.'user_id']);
 				echo "1";

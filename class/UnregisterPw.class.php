@@ -2,7 +2,7 @@
 /**
  * UnregisterPw, remove password-protection
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2013 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -37,7 +37,7 @@ class UnregisterPw extends DbConectionMaker
 				$this->dbObj->sqlSet("UPDATE {$this->_prefix}etchat_user SET 
 					etchat_userpw = NULL,  
 					etchat_userprivilegien = 'gast',
-					etchat_reg_timestamp = '0000-00-00 00:00:00',
+					etchat_reg_timestamp = '1980-01-01 00:00:00',
 					etchat_reg_ip = NULL
 					WHERE etchat_user_id = ".(int)$_SESSION['etchat_'.$this->_prefix.'user_id']);
 				echo "1";

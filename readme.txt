@@ -5,6 +5,9 @@ email: info<at>sedesign<dot>de
 http://www.sedesign.de
 http://www.sedesign.de/de_produkte_chat-v3.html
 
+Release 3 PHP 8.2.4 Beta: 09.04.2323
+by Tommy
+
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Supportforum für ET-Chat: http://www.sedesign.de/sed/forum/
@@ -51,3 +54,9 @@ Vor der Installation machen Sie sich bitte mit der Lizenzierung des Produktes ve
 Ausführliche Installationsanweisung Finden Sie in der Datei install.txt
 
 Viel Spaß mit dem Chat.
+
+ChangeLog ET - Chat v3.0.7 r3 PHP 8.2.4
+-	Alle Dateien umkodiert zu UTF-8
+-	DB Fehler behoben
+-	PHP 7.4 Anpassungen gemacht
+-	PHP 8.2 Anpassungen gemacht

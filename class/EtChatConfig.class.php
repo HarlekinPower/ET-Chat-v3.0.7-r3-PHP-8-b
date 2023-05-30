@@ -2,7 +2,7 @@
 /**
  * Abstract Class EtChatConfig contains vars for inheritance
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -10,7 +10,7 @@
  * @link       http://www.sedesign.de/de_produkte_chat-v3.html
  * @since      File available since Alpha 1.0
  */
-
+#[AllowDynamicProperties]
 abstract class EtChatConfig
 {
 	protected $_database;

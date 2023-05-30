@@ -2,7 +2,7 @@
 /**
  * Class StaticMethods, contans only the simple methond for static use
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2010 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -22,6 +22,7 @@ class StaticMethods{
 	*/
 	static function filtering($str, $sml, $_prefix){
 		
+		$count_all = 0;
 		//to remove all non printable characters in a string, otherwise JS error
 		$str = preg_replace('/[\x00-\x1F]/', '', $str);
 		
@@ -37,7 +38,7 @@ class StaticMethods{
 		
 		// create links from URIs
 		if (stripos($str, ']http://')===false &&  stripos($str, ']https://')===false)
-				$str = preg_replace("/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i","<a target=\"_blank\" href=\"$1\">$1</a>",$str);
+				$str = preg_replace("/([\w]+:\/\/[\w\-?&;#~=\.\/\@]+[\w\/])/i","<a target=\"_blank\" href=\"$1\">$1</a>",$str);
 		else {
 				$str = str_replace("http://www.youtube.com/watch?v=", "", $str);
 				$str = str_replace("https://www.youtube.com/watch?v=", "", $str);
@@ -48,14 +49,14 @@ class StaticMethods{
 		
 		if (!isset($_SESSION['etchat_'.$_prefix.'_badwords']) && file_exists("./lang/bad_words.xml")){
 			$xml = @file_get_contents("./lang/bad_words.xml");
-			$parser = new XMLParser($xml);
+			$parser = new AAFParser($xml);
 			$parser->Parse();
 
 			foreach($parser->document->word as $bword){
 				
 				$exceptions = array();
 				
-				if (is_array($bword->except))
+				if (isset($bword->except) && is_array($bword->except))
 					foreach ($bword->except as $except)
 						$exceptions[] = $except->tagData;
 				
@@ -89,7 +90,7 @@ class StaticMethods{
 		}
 		
 		
-		$video = '<object width="425" height="344"><param name="wmode" value="transparent" name="movie" value="http://www.youtube.com/v/$1"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed wmode="transparent" src="http://www.youtube.com/v/$1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="425" height="344"></embed></object>';
+		$video =  '<iframe width="425" height="344" src="https://www.youtube-nocookie.com/embed/$1" frameborder="0" allowfullscreen></iframe>';
 		
 		if (substr($str, 0, 8)!="/window:"){
 			if (stripos($str, '[img]')!==false && stripos($str, '[/img]')!==false){

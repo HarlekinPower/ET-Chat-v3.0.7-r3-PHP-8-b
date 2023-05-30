@@ -2,7 +2,7 @@
 /**
  * BlockUser, for user blocking in the session
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -39,7 +39,7 @@ class BlockUser extends EtChatConfig
 				$key_from_all = array_search($_POST['block_all'], $_SESSION['etchat_'.$this->_prefix.'block_all']);
 				$_SESSION['etchat_'.$this->_prefix.'block_all'][$key_from_all]=99999999999;
 
-				// Falls der User bereits in privat gesperrt ist, wird dieser Schlüssel gelöscht
+				// Falls der User bereits in privat gesperrt ist, wird dieser SchlÃ¼ssel gelÃ¶scht
 				// If the user is blocked now by privat option, this key will be deleted
 				$key_from_priv = array_search($_POST['block_all'], $_SESSION['etchat_'.$this->_prefix.'block_priv']);
 				$_SESSION['etchat_'.$this->_prefix.'block_priv'][$key_from_priv]=99999999999;
@@ -49,7 +49,7 @@ class BlockUser extends EtChatConfig
 			else {
         	    $_SESSION['etchat_'.$this->_prefix.'block_all'][] = $_POST['block_all'];
 
-				// Falls der User bereits in privat gesperrt ist, wird dieser Schlüssel gelöscht
+				// Falls der User bereits in privat gesperrt ist, wird dieser SchlÃ¼ssel gelÃ¶scht
 				// If the user is blocked now by privat option, this key will be deleted
 				$key_from_priv = array_search($_POST['block_all'], $_SESSION['etchat_'.$this->_prefix.'block_priv']);
 				$_SESSION['etchat_'.$this->_prefix.'block_priv'][$key_from_priv]=99999999999;
@@ -63,7 +63,7 @@ class BlockUser extends EtChatConfig
 				$_SESSION['etchat_'.$this->_prefix.'block_priv'][$key_from_priv]=99999999999;
 
 
-				// Falls der User bereits in all gesperrt ist, wird dieser Schlüssel gelöscht
+				// Falls der User bereits in all gesperrt ist, wird dieser SchlÃ¼ssel gelÃ¶scht
 				// If the user is blocked now by "all" option, this key will be deleted
 				$key_from_all = array_search($_POST['block_priv'], $_SESSION['etchat_'.$this->_prefix.'block_all']);
 				$_SESSION['etchat_'.$this->_prefix.'block_all'][$key_from_all]=99999999999;
@@ -71,7 +71,7 @@ class BlockUser extends EtChatConfig
 			else {
 				$_SESSION['etchat_'.$this->_prefix.'block_priv'][] = $_POST['block_priv'];
 
-				// Falls der User bereits in all gesperrt ist, wird dieser Schlüssel gelöscht
+				// Falls der User bereits in all gesperrt ist, wird dieser SchlÃ¼ssel gelÃ¶scht
 				// If the user is blocked now by "all" option, this key will be deleted
 				$key_from_all = array_search($_POST['block_priv'], $_SESSION['etchat_'.$this->_prefix.'block_all']);
 				$_SESSION['etchat_'.$this->_prefix.'block_all'][$key_from_all]=99999999999;

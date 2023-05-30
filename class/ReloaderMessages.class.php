@@ -2,7 +2,7 @@
 /**
  * Class ReloaderMessages, the AJAX Request for getting and setting new messges,  pull session and more,
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2010 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -115,7 +115,11 @@ class ReloaderMessages extends DbConectionMaker
 						$normal_message_counter = "";
 					}
 					else {
-						$_SESSION['etchat_'.$this->_prefix.'count']++;
+						if (isset($_SESSION['etchat_'.$this->_prefix.'count'])) {
+							$_SESSION['etchat_'.$this->_prefix.'count']++;
+						} else {
+							$_SESSION['etchat_'.$this->_prefix.'count'] = 1;
+						}
 						$normal_message_counter = $_SESSION['etchat_'.$this->_prefix.'count'];
 					}
 					
@@ -260,6 +264,7 @@ class ReloaderMessages extends DbConectionMaker
 			
 			
 		// on first message / on entrance
+		$where_sys_messages = '';
 		if (empty($_SESSION['etchat_'.$this->_prefix.'last_id'])) {
 		
 			if (isset($_SESSION['etchat_'.$this->_prefix.'sys_messages']) && !$_SESSION['etchat_'.$this->_prefix.'sys_messages']){
@@ -297,9 +302,9 @@ class ReloaderMessages extends DbConectionMaker
 			if (is_array($feld)) $_SESSION['etchat_'.$this->_prefix.'last_id']= $feld[(count($feld)-1)][0];
 			else
 			// DE
-			// Das ist wichtig hier die last_id aus der DB auszulesen sogar wenn für das Raum in bem sich der User befindet keine
+			// Das ist wichtig hier die last_id aus der DB auszulesen sogar wenn fÃ¼r das Raum in bem sich der User befindet keine
 			// neuen Messages gab. Sonst bleibt das last_id das alte und beim Raumwechsel kanns passieren, dass alle sonstigen Messages
-			// aus dem Raum in den gewächselt wurde, ausgegeben werden.
+			// aus dem Raum in den gewÃ¤chselt wurde, ausgegeben werden.
 			
 			// EN
 			// It is importent to get the last_id from the DB, even there is no messges for the user. Othewise it kan happen that
@@ -321,8 +326,16 @@ class ReloaderMessages extends DbConectionMaker
 	* @return void
 	*/
 	private function blockiere($user_id, $privat_id){
-		if (is_array ($_SESSION['etchat_'.$this->_prefix.'block_all']) && in_array($user_id, $_SESSION['etchat_'.$this->_prefix.'block_all'])) return true;
-		if (is_array ($_SESSION['etchat_'.$this->_prefix.'block_priv']) && in_array($user_id, $_SESSION['etchat_'.$this->_prefix.'block_priv']) && $privat_id==$_SESSION['etchat_'.$this->_prefix.'user_id']) return true;
+		if (isset ($_SESSION['etchat_'.$this->_prefix.'block_all']) && is_array ($_SESSION['etchat_'.$this->_prefix.'block_all']) && in_array($user_id, $_SESSION['etchat_'.$this->_prefix.'block_all'])) {
+			return true;
+		} else {
+			return false;
+		}
+		if (isset ($_SESSION['etchat_'.$this->_prefix.'block_priv']) && is_array ($_SESSION['etchat_'.$this->_prefix.'block_priv']) && in_array($user_id, $_SESSION['etchat_'.$this->_prefix.'block_priv']) && $privat_id==$_SESSION['etchat_'.$this->_prefix.'user_id'])  {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	

@@ -2,7 +2,7 @@
 /**
  * Class UserCheckerAndInserter, checks the user and insert him/her to db, if possible
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -44,8 +44,8 @@ class UserCheckerAndInserter extends EtChatConfig
 	protected $_gender;
 	
 	/**
-	* XMLParser Obj
-	* @var XMLParser
+	* AAFParser Obj
+	* @var AAFParser
 	*/
 	protected $_lang;
 	
@@ -63,7 +63,7 @@ class UserCheckerAndInserter extends EtChatConfig
 	* @param  string $user 
 	* @param  string $pw 
 	* @param  string $gender
-	* @param  XMLParser $lang 
+	* @param  AAFParser $lang 
 	* @uses ConnectDB::sqlSet()	
 	* @return void
 	*/
@@ -85,7 +85,7 @@ class UserCheckerAndInserter extends EtChatConfig
 		if (is_array($this->_user_exists)){
 			
 			// update needed user params
-			$this->dbObj->sqlSet("UPDATE {$this->_prefix}etchat_user SET etchat_usersex = '".$this->_gender{0}."' WHERE etchat_user_id = ".$this->_user_exists[0][0]);
+			$this->dbObj->sqlSet("UPDATE {$this->_prefix}etchat_user SET etchat_usersex = '".$this->_gender[0]."' WHERE etchat_user_id = ".$this->_user_exists[0][0]);
 			
 			// need pw input?
 			if ($this->_pw=="") $this->userWithoutPw();
@@ -103,7 +103,7 @@ class UserCheckerAndInserter extends EtChatConfig
 	* @return void
 	*/
 	private function createNewUser(){	
-		$this->dbObj->sqlSet("INSERT INTO {$this->_prefix}etchat_user ( etchat_username, etchat_usersex ) VALUES ( '".$this->_user."', '".$this->_gender{0}."')");
+		$this->dbObj->sqlSet("INSERT INTO {$this->_prefix}etchat_user ( etchat_username, etchat_usersex ) VALUES ( '".$this->_user."', '".$this->_gender[0]."')");
 		$user_neu=$this->dbObj->sqlGet("SELECT etchat_user_id, etchat_username, etchat_userprivilegien FROM {$this->_prefix}etchat_user WHERE etchat_username = '".$this->_user."' LIMIT 1");
 		$_SESSION['etchat_'.$this->_prefix.'user_id'] = $user_neu[0][0];
 		$_SESSION['etchat_'.$this->_prefix.'username'] = $user_neu[0][1];
@@ -122,7 +122,7 @@ class UserCheckerAndInserter extends EtChatConfig
 			$_SESSION['etchat_'.$this->_prefix.'username'] = $this->_user_exists[0][1];
 			$_SESSION['etchat_'.$this->_prefix.'user_priv'] = $this->_user_exists[0][3];
 			if ($_SESSION['etchat_'.$this->_prefix.'user_priv']=='admin' ||
-				$_SESSION['etchat_'.$this->_prefix.'user_priv']=='mod') setcookie("cookie_anzahl_logins_in_XX_sek",1);
+				$_SESSION['etchat_'.$this->_prefix.'user_priv']=='mod') setcookie("cookie_anzahl_logins_in_XX_sek",1,["samesite" => "lax"]);
 			$this->status=1;
 		}
 		else $this->status = $this->_lang->pw_falsch[0]->tagData;
@@ -146,7 +146,7 @@ class UserCheckerAndInserter extends EtChatConfig
 			$_SESSION['etchat_'.$this->_prefix.'username'] = $this->_user_exists[0][1];
 			$_SESSION['etchat_'.$this->_prefix.'user_priv'] = $this->_user_exists[0][3];
 			if ($_SESSION['etchat_'.$this->_prefix.'user_priv']=='admin' ||
-				$_SESSION['etchat_'.$this->_prefix.'user_priv']=='mod') setcookie("cookie_anzahl_logins_in_XX_sek",1);
+				$_SESSION['etchat_'.$this->_prefix.'user_priv']=='mod') setcookie("cookie_anzahl_logins_in_XX_sek",1,["samesite" => "lax"]);
 			$this->status = 1;
 		}
 	}

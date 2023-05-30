@@ -2,7 +2,7 @@
 /**
  * Class AdminSmiliesIndex - Admin area
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -37,7 +37,7 @@ class AdminSmiliesIndex extends DbConectionMaker
 		// create new LangXml Object
 		$langObj = new LangXml();
 		$lang=$langObj->getLang()->admin[0]->admin_smilies[0];
-		
+		$print_smil_list = '';
 		
 		if ($_SESSION['etchat_'.$this->_prefix.'user_priv']=="admin"){
 			
@@ -85,7 +85,7 @@ class AdminSmiliesIndex extends DbConectionMaker
 	* Initializer for template
 	*
 	* @param  String $print_smil_list
-	* @param  XMLParser $lang, Obj with the needed lang tag from XML lang-file
+	* @param  AAFParser $lang, Obj with the needed lang tag from XML lang-file
 	* @return void
 	*/
 	private function initTemplate($lang, $print_smil_list){

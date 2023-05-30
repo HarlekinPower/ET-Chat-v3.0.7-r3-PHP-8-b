@@ -26,8 +26,8 @@
 <li><div class="src-line"><a name="a14"></a><font color="blue">class&nbsp;</font><a href="../ET-Chat/LangXml.html">LangXml</a>&nbsp;<font color="blue">extends&nbsp;</font><a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a></div></li>
 <li><div class="src-line"><a name="a15"></a><strong>{</strong></div></li>
 <li><div class="src-line"><a name="a16"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
-<li><div class="src-line"><a name="a17"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;XMLParser&nbsp;Obj</font></div></li>
-<li><div class="src-line"><a name="a18"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>XMLParser&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a17"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;AAFParser&nbsp;Obj</font></div></li>
+<li><div class="src-line"><a name="a18"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>AAFParser&nbsp;</em></div></li>
 <li><div class="src-line"><a name="a19"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
 <li><div class="src-line"><a name="a20"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><a href="../ET-Chat/LangXml.html#var$langXmlDoc">$langXmlDoc</a><strong>;</strong></div></li>
 <li><div class="src-line"><a name="a21"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
@@ -36,9 +36,9 @@
 <li><div class="src-line"><a name="a24"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
 <li><div class="src-line"><a name="a25"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><font color="#009999">&nbsp;</font><em>string&nbsp;</em><strong>$path&nbsp;</strong><font color="#009999">relative&nbsp;path&nbsp;to&nbsp;language&nbsp;files</font></div></li>
 <li><div class="src-line"><a name="a26"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><font color="#009999">&nbsp;</font><em>string&nbsp;</em><strong>$xmlfile&nbsp;</strong></div></li>
-<li><div class="src-line"><a name="a27"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;XMLParser&nbsp;object&nbsp;creation</font></div></li>
-<li><div class="src-line"><a name="a28"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;XMLParser::Parse()&nbsp;parse&nbsp;the&nbsp;lang&nbsp;file</font></div></li>
-<li><div class="src-line"><a name="a29"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;XMLParser::$document&nbsp;root-tag&nbsp;as&nbsp;DOM&nbsp;Obj</font></div></li>
+<li><div class="src-line"><a name="a27"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;AAFParser&nbsp;object&nbsp;creation</font></div></li>
+<li><div class="src-line"><a name="a28"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;AAFParser::Parse()&nbsp;parse&nbsp;the&nbsp;lang&nbsp;file</font></div></li>
+<li><div class="src-line"><a name="a29"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;AAFParser::$document&nbsp;root-tag&nbsp;as&nbsp;DOM&nbsp;Obj</font></div></li>
 <li><div class="src-line"><a name="a30"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>void&nbsp;</em></div></li>
 <li><div class="src-line"><a name="a31"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
 <li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/LangXml.html#method__construct">__construct</a>&nbsp;<strong>(</strong><strong>$path</strong>=<font color="#66cccc">&quot;./lang/&quot;</font><strong>,&nbsp;</strong><strong>$xmlfile</strong>=<font color="#66cccc">&quot;&quot;</font><strong>)</strong><strong>{&nbsp;&nbsp;&nbsp;&nbsp;</strong></div></li>
@@ -55,8 +55,8 @@
 <li><div class="src-line"><a name="a43"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;read&nbsp;the&nbsp;whole&nbsp;XML-Lang&nbsp;file</font></div></li>
 <li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$xml&nbsp;</strong>=&nbsp;<strong>@</strong><a href="http://www.php.net/file_get_contents">file_get_contents</a><strong>(</strong><strong>$path</strong>.<strong>$xmlfile</strong><strong>)</strong><strong>;</strong></div></li>
 <li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
-<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;create&nbsp;a&nbsp;XMLParser&nbsp;obj</font></div></li>
-<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$parser&nbsp;</strong>=&nbsp;new&nbsp;<a href="../ET-Chat/XMLParser.html">XMLParser</a><strong>(</strong><strong>$xml</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;create&nbsp;a&nbsp;AAFParser&nbsp;obj</font></div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$parser&nbsp;</strong>=&nbsp;new&nbsp;<a href="../ET-Chat/AAFParser.html">AAFParser</a><strong>(</strong><strong>$xml</strong><strong>)</strong><strong>;</strong></div></li>
 <li><div class="src-line"><a name="a48"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$parser</strong><strong>-&gt;</strong>Parse<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
 <li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/LangXml.html#var$langXmlDoc">langXmlDoc</a>&nbsp;=&nbsp;<strong>$parser</strong><strong>-&gt;</strong>document<strong>;</strong></div></li>
 <li><div class="src-line"><a name="a50"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
@@ -64,7 +64,7 @@
 <li><div class="src-line"><a name="a52"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
 <li><div class="src-line"><a name="a53"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Get&nbsp;language&nbsp;datasets&nbsp;for&nbsp;curent&nbsp;class</font></div></li>
 <li><div class="src-line"><a name="a54"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
-<li><div class="src-line"><a name="a55"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>XMLParser&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a55"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>AAFParser&nbsp;</em></div></li>
 <li><div class="src-line"><a name="a56"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
 <li><div class="src-line"><a name="a57"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/LangXml.html#methodgetLang">getLang</a><strong>(</strong><strong>)</strong><strong>{&nbsp;&nbsp;&nbsp;&nbsp;</strong></div></li>
 <li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/LangXml.html#var$langXmlDoc">langXmlDoc</a><strong>;</strong></div></li>

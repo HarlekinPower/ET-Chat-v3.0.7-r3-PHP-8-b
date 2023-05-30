@@ -2,7 +2,7 @@
 /**
  * Class AdminEditUser - Admin area
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -63,7 +63,7 @@ class AdminEditUser extends DbConectionMaker
 	* Initializer for template
 	*
 	* @param Array $feld
-	* @param XMLParser $lang, Obj with the needed lang tag from XML lang-file
+	* @param AAFParser $lang, Obj with the needed lang tag from XML lang-file
 	* @return void
 	*/
 	private function initTemplate($lang, $feld){

@@ -2,7 +2,7 @@
 /**
  * Class Blacklist checks if the user is allowed to be in the chat and inserts the user to the blacklist
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -57,6 +57,7 @@ class Blacklist extends EtChatConfig
 	public function userInBlacklist(){	
 
 		//look first for a "black cookie". If is set, compare it with the actual datasets in the etchat_blacklist tab
+		$blacklist_c = '';
 		if(isset($_COOKIE['cookie_etchat_blacklist_ip']) && isset($_COOKIE['cookie_etchat_blacklist_until']))
 			$blacklist_c=$this->dbObj->sqlGet("SELECT etchat_blacklist_time FROM {$this->_prefix}etchat_blacklist WHERE etchat_blacklist_ip = '".addslashes($_COOKIE['cookie_etchat_blacklist_ip'])."' and etchat_blacklist_time = ".(int)$_COOKIE['cookie_etchat_blacklist_until']." and etchat_blacklist_time > ".date('U'));
 		
@@ -83,8 +84,8 @@ class Blacklist extends EtChatConfig
 		$rechte_zum_sperren=$this->dbObj->sqlGet("select etchat_userprivilegien FROM {$this->_prefix}etchat_user where etchat_user_id = ".$_SESSION['etchat_'.$this->_prefix.'user_id']);
 		if ($rechte_zum_sperren[0][0]!="admin" && $rechte_zum_sperren[0][0]!="mod"){
 			$this->dbObj->sqlSet("DELETE FROM {$this->_prefix}etchat_useronline WHERE etchat_onlineuser_fid = ".$_SESSION['etchat_'.$this->_prefix.'user_id']);
-			setcookie("cookie_etchat_blacklist_until", $this->user_bann_time, $this->user_bann_time, "/"); 
-			setcookie("cookie_etchat_blacklist_ip", $this->user_param_all, $this->user_bann_time, "/");
+			setcookie("cookie_etchat_blacklist_until", $this->user_bann_time, ["expires"  => $this->user_bann_time, "path" => "/", "samesite" => "lax"]);
+			setcookie("cookie_etchat_blacklist_ip", $this->user_param_all, ["expires"  => $this->user_bann_time, "path" => "/", "samesite" => "lax"]);
 			return true;
 		}
 		else return false;

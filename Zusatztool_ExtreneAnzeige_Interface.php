@@ -3,9 +3,11 @@
 // like $GLOBALS["path"] = "./et_chat_v3.06/";
 $GLOBALS["path"] = "./";
 
-function __autoload($class_name) {
+function autoload($class_name) {
 		require_once ($GLOBALS["path"].'class/'.$class_name.'.class.php');		
 }
+
+spl_autoload_register('autoload');
 
 class ExternUserView extends DbConectionMaker
 {
@@ -44,6 +46,6 @@ class ExternUserView extends DbConectionMaker
 }
 
 // initialise
-new ExternUserView;
+new ExternUserView();
 
 ?>

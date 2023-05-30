@@ -2,7 +2,7 @@
 /**
  * Class AdminInsertSmilies - Admin area
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -52,6 +52,7 @@ class AdminInsertSmilies extends DbConectionMaker
 			}
 
 			// Test if the sign exists in the DB
+			$print_result = '';
 			$res = $this->dbObj->sqlGet("select etchat_smileys_id FROM {$this->_prefix}etchat_smileys where etchat_smileys_sign = '".$_POST['sign']."'");
 			if (is_array($res)){
 				$print_result.= $lang->sign_exists[0]->tagData."<br>";

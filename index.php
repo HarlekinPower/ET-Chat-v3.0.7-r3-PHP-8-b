@@ -2,7 +2,7 @@
 /**
  * This is the main Controller in the MVC-Modell of ET-Chat. All classes initialise in this file and this is ony one file that ist requested by any URI
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2011 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/

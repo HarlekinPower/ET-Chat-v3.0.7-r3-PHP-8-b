@@ -2,7 +2,7 @@
 /**
  * Class InstallIndex
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -39,7 +39,7 @@ class InstallIndex extends EtChatConfig
 		if (empty($install_error)) 
 			$start_install = "<a href=\"./?InstallMake\">Installation starten &gt;&gt;&gt;</a>";
 		else 
-			$start_install = "<b>Die Installation kann nicht durchgeführt werden.</b><br /><br /> Ursache/n:<br />".$install_error."<br /><br />Bitte korrigieren Sie die Einstellungen Ihres Webservers um den ET-Chat zu installieren.";
+			$start_install = "<b>Die Installation kann nicht durchgefÃ¼hrt werden.</b><br /><br /> Ursache/n:<br />".$install_error."<br /><br />Bitte korrigieren Sie die Einstellungen Ihres Webservers um den ET-Chat zu installieren.";
 		
 		
 		if (file_exists("./install"))

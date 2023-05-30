@@ -2,7 +2,7 @@
 /**
  * Class Index, login page creator
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -41,7 +41,7 @@ class Index extends DbConectionMaker
 		session_start();
 		
 		// Sets  cookie with Unix timestamp. This serve as a test for bot blocking.
-		setcookie($this->_prefix."cookie_test", date('U'));
+		setcookie($this->_prefix."cookie_test", date('U'), ["samesite" => "lax"]);
 		
 		// Sets charset and content-type for index.php
 		header('content-type: text/html; charset=utf-8');

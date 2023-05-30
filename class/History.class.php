@@ -2,7 +2,7 @@
 /**
  * Class History, shows the history of the chatmessages
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -132,6 +132,7 @@ class History extends DbConectionMaker
 
 		if (is_array($feld)){
 			for ($a=0; $a < count($feld); $a++){
+				$private_at_user = "";
 				if($feld[$a][5]==0){
 					if($a%2==1) echo "<tr class=\"ungerade\" id=\"tr".$feld[$a][0]."\" >";
 					else echo "<tr class=\"gerade\" id=\"tr".$feld[$a][0]."\"  >";

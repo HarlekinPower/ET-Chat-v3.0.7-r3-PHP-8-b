@@ -2,7 +2,7 @@
 /**
  * Class ReloaderUserOnline, generate userOnline-JSON
  *
- * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung — Nicht-kommerziell 2.0"
+ * LICENSE: CREATIVE COMMONS PUBLIC LICENSE  "Namensnennung â€” Nicht-kommerziell 2.0"
  *
  * @copyright  2009 <SEDesign />
  * @license    http://creativecommons.org/licenses/by-nc/2.0/de/
@@ -81,6 +81,7 @@ class ReloaderUserOnline extends DbConectionMaker
 	*/
 	private function anyChangesSinceLastPolling($feld,$roomarray){
 		
+		$rel = '';
 		// create one string with all DB-params
 		for ($a=0; $a < count($feld); $a++)
 			$rel .= $feld[$a][1].$feld[$a][2].$feld[$a][3].$feld[$a][5].$feld[$a][8];
@@ -88,12 +89,24 @@ class ReloaderUserOnline extends DbConectionMaker
 			$rel .= $roomarray[$a][0].$roomarray[$a][1];
 		
 		// add the blocking parameters to the same string
-		if (is_array ($_SESSION['etchat_'.$this->_prefix.'block_all'])) $rel .= implode("-",$_SESSION['etchat_'.$this->_prefix.'block_all']);
-		if (is_array ($_SESSION['etchat_'.$this->_prefix.'block_priv'])) $rel .= implode("-",$_SESSION['etchat_'.$this->_prefix.'block_priv']);
-		if (is_array ($_SESSION['etchat_'.$this->_prefix.'roompw_array'])) $rel .= implode("-",$_SESSION['etchat_'.$this->_prefix.'roompw_array']);
+		if (isset ($_SESSION['etchat_'.$this->_prefix.'block_all']) && is_array ($_SESSION['etchat_'.$this->_prefix.'block_all'])) {
+			$rel .= implode("-",$_SESSION['etchat_'.$this->_prefix.'block_all']);
+		} else {
+			$rel .= '';
+		}
+		if (isset ($_SESSION['etchat_'.$this->_prefix.'block_priv']) && is_array ($_SESSION['etchat_'.$this->_prefix.'block_priv'])) {
+			$rel .= implode("-",$_SESSION['etchat_'.$this->_prefix.'block_priv']);
+		} else {
+			$rel .= '';
+		}
+		if (isset ($_SESSION['etchat_'.$this->_prefix.'roompw_array']) && is_array ($_SESSION['etchat_'.$this->_prefix.'roompw_array'])) {
+			$rel .= implode("-",$_SESSION['etchat_'.$this->_prefix.'roompw_array']);
+		} else {
+			$rel .= '';
+		}
 
 		// equalize the actual made string with the string saved at last turn/pull
-		if($_SESSION['etchat_'.$this->_prefix.'reload_user_anz'] == $rel) return false;
+		if (isset($_SESSION['etchat_'.$this->_prefix.'reload_user_anz']) && $_SESSION['etchat_'.$this->_prefix.'reload_user_anz'] == $rel) return false;
 		else {
 		
 			// Save the actual string to the session
@@ -149,8 +162,17 @@ class ReloaderUserOnline extends DbConectionMaker
 		for ($a=0; $a < count($feld); $a++){
 
 			// strikethrough the user name if this user ist blocked by you
-			if (is_array ($_SESSION['etchat_'.$this->_prefix.'block_all']) && in_array($feld[$a][3], $_SESSION['etchat_'.$this->_prefix.'block_all'])) $feld[$a][0]="<strike>".$feld[$a][0];
-			if (is_array ($_SESSION['etchat_'.$this->_prefix.'block_priv']) && in_array($feld[$a][3], $_SESSION['etchat_'.$this->_prefix.'block_priv'])) $feld[$a][0]="<strike>".$feld[$a][0];
+			$last_room_id = '';
+			if (isset ($_SESSION['etchat_'.$this->_prefix.'block_all']) && is_array ($_SESSION['etchat_'.$this->_prefix.'block_all']) && in_array($feld[$a][3], $_SESSION['etchat_'.$this->_prefix.'block_all'])) {
+				$feld[$a][0] = "<strike>".$feld[$a][0];
+			} else {
+				$feld[$a][0] = $feld[$a][0];
+			}
+			if (isset ($_SESSION['etchat_'.$this->_prefix.'block_priv']) && is_array ($_SESSION['etchat_'.$this->_prefix.'block_priv']) && in_array($feld[$a][3], $_SESSION['etchat_'.$this->_prefix.'block_priv'])) {
+				$feld[$a][0] = "<strike>".$feld[$a][0];
+			} else {
+				$feld[$a][0] = $feld[$a][0];
+			}
 
 			// who ist allowed to visit this room
 			if($feld[$a][2]!=$last_room_id){

@@ -34,7 +34,7 @@ CREATE TABLE  ###prefix###etchat_messages (
   etchat_timestamp bigint(20) NOT NULL,
   etchat_fid_room int(11) NOT NULL default '1',
   etchat_privat int(8) default '0',
-  etchat_user_ip varchar(20) DEFAULT NULL,
+  etchat_user_ip varchar(100) DEFAULT NULL,
   PRIMARY KEY  (etchat_id)
 );
 -- limit --
@@ -168,8 +168,8 @@ CREATE TABLE  ###prefix###etchat_user (
   etchat_userpw varchar(40) default NULL,
   etchat_userprivilegien varchar(15) NOT NULL default 'gast',
   etchat_usersex varchar(1) NOT NULL default 'n',
-  etchat_reg_timestamp timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  etchat_reg_ip varchar(20) DEFAULT NULL,
+  etchat_reg_timestamp timestamp NOT NULL DEFAULT '1980-01-01 00:00:00',
+  etchat_reg_ip varchar(100) DEFAULT NULL,
   PRIMARY KEY  (etchat_user_id)
 );
 -- limit --
