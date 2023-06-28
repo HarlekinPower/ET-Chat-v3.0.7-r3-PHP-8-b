@@ -83,10 +83,17 @@ class ReloaderUserOnline extends DbConectionMaker
 		
 		$rel = '';
 		// create one string with all DB-params
-		for ($a=0; $a < count($feld); $a++)
-			$rel .= $feld[$a][1].$feld[$a][2].$feld[$a][3].$feld[$a][5].$feld[$a][8];
-		for ($a=0; $a < count($roomarray); $a++)
-			$rel .= $roomarray[$a][0].$roomarray[$a][1];
+		if (is_array($feld)) {
+			foreach ($feld as $row) {
+				$rel .= implode('', $row);
+			}
+		}
+
+		if (is_array($roomarray)) {
+			foreach ($roomarray as $row) {
+				$rel .= implode('', $row);
+			}
+		}
 		
 		// add the blocking parameters to the same string
 		if (isset ($_SESSION['etchat_'.$this->_prefix.'block_all']) && is_array ($_SESSION['etchat_'.$this->_prefix.'block_all'])) {
