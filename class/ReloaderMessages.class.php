@@ -328,13 +328,10 @@ class ReloaderMessages extends DbConectionMaker
 	private function blockiere($user_id, $privat_id){
 		if (isset ($_SESSION['etchat_'.$this->_prefix.'block_all']) && is_array ($_SESSION['etchat_'.$this->_prefix.'block_all']) && in_array($user_id, $_SESSION['etchat_'.$this->_prefix.'block_all'])) {
 			return true;
-		} else {
-			return false;
 		}
+		
 		if (isset ($_SESSION['etchat_'.$this->_prefix.'block_priv']) && is_array ($_SESSION['etchat_'.$this->_prefix.'block_priv']) && in_array($user_id, $_SESSION['etchat_'.$this->_prefix.'block_priv']) && $privat_id==$_SESSION['etchat_'.$this->_prefix.'user_id'])  {
 			return true;
-		} else {
-			return false;
 		}
 	}
 

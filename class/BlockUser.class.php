@@ -28,8 +28,8 @@ class BlockUser extends EtChatConfig
 		// all documentc requested per AJAX should have this part to turn off the browser and proxy cache for any XHR request
 		header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0');
 		
-		if(!is_array($_SESSION['etchat_'.$this->_prefix.'block_priv'])) $_SESSION['etchat_'.$this->_prefix.'block_priv'] = array();
-		if(!is_array($_SESSION['etchat_'.$this->_prefix.'block_all'])) $_SESSION['etchat_'.$this->_prefix.'block_all'] = array();
+		$_SESSION['etchat_' . $this->_prefix . 'block_priv'] = $_SESSION['etchat_' . $this->_prefix . 'block_priv'] ?? [];
+		$_SESSION['etchat_' . $this->_prefix . 'block_all'] = $_SESSION['etchat_' . $this->_prefix . 'block_all'] ?? [];
 
 		// Block all messages
 		if (isset($_POST['block_all'])){
