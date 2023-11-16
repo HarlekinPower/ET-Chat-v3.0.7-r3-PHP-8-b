@@ -499,7 +499,7 @@ var open_close_smileys_win = function(input_field_name){
             	if(Event.element(event).id!="" && Event.element(event).id!='smileys_list'){
 											// Nach Auswahl des Smileys einfach Fenster schliessen
                                            self.win_smileys.close();
-                                           $(input_field_name).value +=Event.element(event).id;
+                                           $(input_field_name).value +="  "+Event.element(event).id;
                                            $(input_field_name).focus();
                                            
                 }
@@ -1475,7 +1475,7 @@ var changeUserEvent = function(ereignis){
 	
 //##############################################################################################################	
 	if (ereignis.slice(0, 9)=="smilchat_") {
-		$('message').value += ereignis.slice(9, ereignis.length);
+		$('message').value += "  "+ereignis.slice(9, ereignis.length);
 		$('message').focus();
 	}
 //##############################################################################################################
