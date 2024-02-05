@@ -1,3 +1,5 @@
-Order deny,allow
-Deny from all
-Satisfy any
+<Files *>
+order allow,deny
+deny from all
+satisfy all
+</Files>
