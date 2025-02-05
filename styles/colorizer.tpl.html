@@ -186,10 +186,32 @@
 <td valign="top">
 <!-- Font -->
 <?=$this->lang->font[0]->tagData?><br />
+<?php
+if (isset($_COOKIE['saved_italic_'.$_SESSION['etchat_'.$this->_prefix.'username'].''])) {
+?>
+<input type="Checkbox" id="kursiv" checked="checked"> <i><?=$this->lang->kursiv[0]->tagData?></i>
+<br />
+<?php
+} else {
+?>
 <input type="Checkbox" id="kursiv"> <i><?=$this->lang->kursiv[0]->tagData?></i>
 <br />
+<?php
+}
+?>
+<?php
+if (isset($_COOKIE['saved_bold_'.$_SESSION['etchat_'.$this->_prefix.'username'].''])) {
+?>
+<input type="Checkbox" id="fett" checked="checked"> <b><?=$this->lang->bold[0]->tagData?></b>
+<br /><br />
+<?php
+} else {
+?>
 <input type="Checkbox" id="fett"> <b><?=$this->lang->bold[0]->tagData?></b>
 <br /><br />
+<?php
+}
+?>
 <!-- Sliders -->
 <?=$this->lang->colormanagement[0]->tagData?><br/>
 
